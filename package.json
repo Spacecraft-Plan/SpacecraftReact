@@ -66,7 +66,9 @@
   "scripts": {
     "start": "node scripts/start.js",
     "build": "node scripts/build.js",
-    "test": "node scripts/test.js --env=jsdom"
+    "test": "node scripts/test.js --env=jsdom",
+    "predeploy": "npm run build",
+     "deploy": "gh-pages -d build"
   },
   "rekit": {
     "devPort": 6075,
@@ -111,5 +113,9 @@
   "eslintConfig": {
     "extends": "react-app"
   },
-  "description": "SpacecraftReact created by Rekit."
+  "description": "SpacecraftReact created by Rekit.",
+  "homepage": "https://github.com/Spacecraft-Plan/SpacecraftReact",
+  "devDependencies": {
+    "gh-pages": "^2.0.1"
+  }
 }
