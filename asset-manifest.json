@@ -1,14 +1,6 @@
 {
-  "main.css": "/SpacecraftReact/static/css/main.3c7e94b7.chunk.css",
-  "main.js": "/SpacecraftReact/static/js/main.ecbd3a01.chunk.js",
-  "main.js.map": "/SpacecraftReact/static/js/main.ecbd3a01.chunk.js.map",
-  "runtime~main.js": "/SpacecraftReact/static/js/runtime~main.961154e9.js",
-  "runtime~main.js.map": "/SpacecraftReact/static/js/runtime~main.961154e9.js.map",
-  "static/js/2.6efc73d3.chunk.js": "/SpacecraftReact/static/js/2.6efc73d3.chunk.js",
-  "static/js/2.6efc73d3.chunk.js.map": "/SpacecraftReact/static/js/2.6efc73d3.chunk.js.map",
-  "index.html": "/SpacecraftReact/index.html",
-  "precache-manifest.5b80b5cee8a1f504471831c4e21673f1.js": "/SpacecraftReact/precache-manifest.5b80b5cee8a1f504471831c4e21673f1.js",
-  "service-worker.js": "/SpacecraftReact/service-worker.js",
-  "static/css/main.3c7e94b7.chunk.css.map": "/SpacecraftReact/static/css/main.3c7e94b7.chunk.css.map",
-  "static/media/logo.svg": "/SpacecraftReact/static/media/logo.5d5d9eef.svg"
+  "main.js": "static/js/main.1847c11a.js",
+  "main.js.map": "static/js/main.1847c11a.js.map",
+  "static/media/react-logo.svg": "static/media/react-logo.5d5d9eef.svg",
+  "static/media/rekit-logo.svg": "static/media/rekit-logo.7480cbd9.svg"
 }
