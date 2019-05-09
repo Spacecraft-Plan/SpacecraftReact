@@ -21,6 +21,14 @@ const routes = [{
     { path: '*', name: 'Page not found', component: PageNotFound },
   ].filter(r => r.component || (r.childRoutes && r.childRoutes.length > 0)),
 }];
+// URL	组件
+//  /	      App -> DefaultPage
+//  /       App -> DefaultPage
+//  /common	  App -> PageNotFound
+//  /examples 	App -> Layout
+//  /examples 	App -> Layout -> WelcomePage
+//  /examples/counter 	App -> Layout -> CounterPage
+//  /examples/reddit 	App -> Layout -> RedditListPage
 
 // Handle isIndex property of route config:
 //  Dupicate it and put it as the first route rule.
