@@ -12,7 +12,7 @@ stages:
   - staging
   - deploy
 #   - production
-  - perfomance
+  - performance
 
 before_script:
   - echo "global before script"
