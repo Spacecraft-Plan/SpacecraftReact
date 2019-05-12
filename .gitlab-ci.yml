@@ -14,8 +14,6 @@ stages:
 
 before_script:
   - echo "global before script"
-script:
-  - echo "running global script"
 after_script:
   - echo "global after script"
 
