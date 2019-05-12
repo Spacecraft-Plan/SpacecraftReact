@@ -9,9 +9,9 @@ stages:
   - build
 #   - cleanup_build
   - test
-  - deploy
   - staging
-  - production
+  - deploy
+#   - production
   - perfomance
 
 before_script:
@@ -35,22 +35,22 @@ build_artifacts:
 #   when: on_failure
 # test phase
 code_quality:
-  stage: build
+  stage: test
   script: echo "running code quality script"
 
 dependency_scanning:
-  stage: build
+  stage: test
   script: echo "running dependency scanning script"
  
 sast:
-  stage: build
+  stage: test
   script: echo "running static application security testing script"
   
 sast_container:
-  stage: build
+  stage: test
   script: echo "running contanier script"
 test:
-  stage: build
+  stage: test
   script: echo "running test script"
 # staging phase
 staging:
@@ -69,9 +69,6 @@ deploy_staging:
   only:
   - master
 
-#performance
-
-  
 # Job name for gitlab to recognise this results in assets for Gitlab Pages
 # https://docs.gitlab.com/ee/user/project/pages/introduction.html#gitlab-pages-requirements
 pages:
@@ -88,5 +85,10 @@ pages:
     - public # The built files for Gitlab Pages to serve
   only:
     - master # Only run on master branch
-
+    
+#performance
+performance:
+  stage: performance
+  script:
+    - echo "running performance script"
  
