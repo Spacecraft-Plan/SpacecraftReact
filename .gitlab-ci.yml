@@ -28,11 +28,11 @@ build_artifacts:
   stage: build
   script: echo "running build artifacts script"
 
-cleanup_build_job:
-  stage: cleanup_build
-  script:
-    - echo "cleanup build when failed"
-  when: on_failure
+# cleanup_build_job:
+#   stage: cleanup_build
+#   script:
+#     - echo "cleanup build when failed"
+#   when: on_failure
 # test phase
 code_quality:
   stage: build
