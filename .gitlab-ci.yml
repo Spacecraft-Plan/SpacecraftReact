@@ -7,16 +7,71 @@ cache:
     - node_modules
 stages:
   - build
-  - cleanup_build
+#   - cleanup_build
   - test
   - deploy
-  - cleanup
+  - staging
+  - production
+  - perfomance
 
 before_script:
   - echo "global before script"
 after_script:
   - echo "global after script"
+  
+# build phase  
+build_dependencies:
+  stage: build
+  script: echo "running build dependencies script"
 
+build_artifacts:
+  stage: build
+  script: echo "running build artifacts script"
+
+cleanup_build_job:
+  stage: cleanup_build
+  script:
+    - echo "cleanup build when failed"
+  when: on_failure
+# test phase
+code_quality:
+  stage: build
+  script: echo "running code quality script"
+
+dependency_scanning:
+  stage: build
+  script: echo "running dependency scanning script"
+ 
+sast:
+  stage: build
+  script: echo "running static application security testing script"
+  
+sast_container:
+  stage: build
+  script: echo "running contanier script"
+test:
+  stage: build
+  script: echo "running test script"
+# staging phase
+staging:
+  stage: staging
+  script:
+    - echo "running staging script"
+
+# deploy phose
+deploy_staging:
+  stage: deploy
+  script:
+    - echo "Deploy to staging server"
+  environment:
+    name: staging
+    url: https://staging.example.com
+  only:
+  - master
+
+#performance
+
+  
 # Job name for gitlab to recognise this results in assets for Gitlab Pages
 # https://docs.gitlab.com/ee/user/project/pages/introduction.html#gitlab-pages-requirements
 pages:
@@ -33,59 +88,5 @@ pages:
     - public # The built files for Gitlab Pages to serve
   only:
     - master # Only run on master branch
-# ====================================example start===========================================
-job 1:
-  stage: build
-  script: echo "job 1>>running build dependencies script"
 
-job 2:
-  stage: build
-  script: echo "running build artifacts script"
-
-job 3:
-  stage: test
-  script: echo "running test script"
-
-job 4:
-  stage: deploy
-  script: echo "running test script"
-
-cleanup_build_job:
-  stage: cleanup_build
-  script:
-    - cleanup build when failed
-  when: on_failure
-
-test_job:
-  stage: test
-  script:
-    - make test
-
-build_job:
-  stage: build
-  script:
-    - make build
-    
-deploy_job:
-  stage: deploy
-  script:
-    - make deploy
-  when: manual
-
-cleanup_job:
-  stage: cleanup
-  script:
-    - cleanup after jobs
-  when: always
-
-deploy_staging:
-  stage: deploy
-  script:
-    - echo "Deploy to staging server"
-  environment:
-    name: staging
-    url: https://staging.example.com
-  only:
-  - master
-# ====================================example end===========================================
  
