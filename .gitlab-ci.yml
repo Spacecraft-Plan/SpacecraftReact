@@ -59,6 +59,23 @@ staging:
     - echo "running staging script"
 
 # deploy phose
+rollout 10%:
+  stage: deploy
+  script:
+    - echo "running rollout 10% script"
+rollout 25%:
+  stage: deploy
+  script:
+    - echo "running rollout 25% script"
+rollout 50%:
+  stage: deploy
+  script:
+    - echo "running rollout 50% script"
+rollout 100%:
+  stage: deploy
+  script:
+    - echo "running rollout 100% script"
+
 deploy_staging:
   stage: deploy
   script:
