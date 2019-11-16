@@ -14,6 +14,7 @@ const middlewares = [
 
 let devToolsExtension = f => f;
 
+//Note that starting from v2.7, window.devToolsExtension was renamed to window.__REDUX_DEVTOOLS_EXTENSION__ / window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__.
 /* istanbul ignore if  */
 if (process.env.NODE_ENV === 'development') {
   const { createLogger } = require('redux-logger');

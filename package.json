@@ -34,6 +34,7 @@
     "express-history-api-fallback": "^2.2.1",
     "extract-text-webpack-plugin": "3.0.2",
     "file-loader": "1.1.5",
+    "firebase": "^5.11.1",
     "fs-extra": "3.0.1",
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
@@ -72,7 +73,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "predeploy": "npm run build",
-     "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d build"
   },
   "rekit": {
     "devPort": 6075,
@@ -118,5 +119,4 @@
     "extends": "react-app"
   },
   "description": "SpacecraftReact created by Rekit."
-
 }
