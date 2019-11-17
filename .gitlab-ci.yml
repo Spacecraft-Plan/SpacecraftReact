@@ -1,4 +1,5 @@
 image: node:alpine
+services: python:2.7.16-alpine3.8
 variables:
   PUBLIC_URL: /spacecraftreact
 # Cache node modules - speeds up future builds
@@ -88,7 +89,6 @@ deploy_staging:
 # Job name for gitlab to recognise this results in assets for Gitlab Pages
 # https://docs.gitlab.com/ee/user/project/pages/introduction.html#gitlab-pages-requirements
 pages:
-  image: python:2.7.16-alpine3.8
   stage: deploy
   script:
     - echo "Deploy to gitlab page"
