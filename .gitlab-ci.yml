@@ -13,7 +13,7 @@ stages:
   - test
   - staging
   - deploy
-  - production
+  # - production
   - performance
 
 before_script:
