@@ -13,7 +13,7 @@ stages:
   - test
   - staging
   - deploy
-#   - production
+  - production
   - performance
 
 before_script:
@@ -94,8 +94,9 @@ pages:
   stage: deploy
   script:
     - echo "Deploy to gitlab page"
-    # - npm config set python python2.7.16
-    - npm config set python "/path/to/pythonexecutable"
+    - npm config set python python2.7.16
+    # - npm config set python "/path/to/pythonexecutable"
+    - npm config get python
     - npm install --global node-gyp
     - npm install # Install all dependencies
     - npm run build --prod # Build for prod
