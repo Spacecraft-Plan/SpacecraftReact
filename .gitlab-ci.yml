@@ -8,10 +8,10 @@ cache:
   paths:
     - node_modules
 stages:
-  # - build
+  - build
 #   - cleanup_build
-  # - test
-  # - staging
+  - test
+  - staging
   - deploy
 #   - production
   - performance
