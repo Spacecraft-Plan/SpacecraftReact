@@ -92,6 +92,7 @@ pages:
   stage: deploy
   script:
     - echo "Deploy to gitlab page"
+    - echo `npm config get python`
     - npm config set python "/path/to/pythonexecutable"
     - npm install --global node-gyp
     - npm install # Install all dependencies
