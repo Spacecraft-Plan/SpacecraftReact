@@ -1,6 +1,6 @@
-image: node:alpine
-services: 
-  - python:2.7.16
+# image: node:alpine
+# services: 
+  # - python:2.7.16
 variables:
   PUBLIC_URL: /spacecraftreact
 # Cache node modules - speeds up future builds
@@ -18,6 +18,8 @@ stages:
 
 before_script:
   - echo "global before script"
+  - apt-get update -qy
+  - apt-get install -y python-dev python-pip
   - python --version
   - echo "global after script"
   
