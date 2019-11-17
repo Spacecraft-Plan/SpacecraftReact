@@ -16,7 +16,6 @@ stages:
 
 before_script:
   - echo "global before script"
-  - apt-get -yq install  python2.7
   - echo "global after script"
   
 # build phase  
@@ -89,10 +88,10 @@ deploy_staging:
 # Job name for gitlab to recognise this results in assets for Gitlab Pages
 # https://docs.gitlab.com/ee/user/project/pages/introduction.html#gitlab-pages-requirements
 pages:
+  image: python:2.7:alpine
   stage: deploy
   script:
     - echo "Deploy to gitlab page"
-    - npm config get python
     - npm config set python python2.7
     - npm install --global node-gyp
     - npm install # Install all dependencies
