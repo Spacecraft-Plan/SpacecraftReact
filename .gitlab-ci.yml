@@ -1,5 +1,6 @@
 image: node:alpine
-services: python:2.7.16-alpine3.8
+services: 
+  - python:2.7.16
 variables:
   PUBLIC_URL: /spacecraftreact
 # Cache node modules - speeds up future builds
