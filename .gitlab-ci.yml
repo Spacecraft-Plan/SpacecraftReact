@@ -93,7 +93,8 @@ pages:
   stage: deploy
   script:
     - echo "Deploy to gitlab page"
-    - npm config set python python2.7
+    - npm config get python
+    - npm config set python python2.7.16
     - npm install --global node-gyp
     - npm install # Install all dependencies
     - npm run build --prod # Build for prod
