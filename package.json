@@ -2,7 +2,7 @@
   "name": "SpacecraftReact",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://spacecraft-plan.github.io/SpacecraftReact",
+  "homepage": "https://spacecraft-plan.github.io",
   "devDependencies": {
     "gh-pages": "^2.0.1"
   },
@@ -73,7 +73,7 @@
     "build": "node scripts/build.js",
     "test": "node scripts/test.js --env=jsdom",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build"
+    "deploy": "node scripts/deploy.js"
   },
   "rekit": {
     "devPort": 6075,
