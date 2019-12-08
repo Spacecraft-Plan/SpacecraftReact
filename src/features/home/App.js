@@ -31,10 +31,8 @@ export default class App extends Component {
       projectId: 'spacecraft-22dc1',
       storageBucket: 'spacecraft-22dc1.appspot.com',
       messagingSenderId: '28459008283',
-      // appId: "1:28459008283:web:809f4571433c65f9",
-      // measurementId: "G-83LV95LTW7"
-      appId: "1:28459008283:web:e9305848b03479a1",
-      measurementId: "G-WZ12BEX6RG",
+      appId: "1:28459008283:web:809f4571433c65f9",
+      measurementId: "G-83LV95LTW7"
     };
     firebase.initializeApp(config);
     const perf = firebase.performance();
