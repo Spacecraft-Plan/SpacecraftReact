@@ -16,5 +16,6 @@ export default {
     { path: '', name: 'Welcome page', component: WelcomePage },
     { path: 'counter', name: 'Counter page', component: CounterPage },
     { path: 'reddit', name: 'Reddit list page', component: RedditListPage },
+    { path: 'map', name: 'Map page', component: MapPage },
   ],
 };

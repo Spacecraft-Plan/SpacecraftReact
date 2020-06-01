@@ -25,6 +25,9 @@ export class SidePanel extends Component {
             <Link to="/examples/reddit">Reddit API Demo</Link>
           </li>
           <li>
+            <Link to="/examples/map">Map Demo</Link>
+          </li>
+          <li>
             <Link to="/">Back to start page</Link>
           </li>
         </ul>
