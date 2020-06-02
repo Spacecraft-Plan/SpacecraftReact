@@ -5,6 +5,7 @@ import {
   WelcomePage,
   CounterPage,
   RedditListPage,
+  MapPage,
   Layout,
 } from './';
 
