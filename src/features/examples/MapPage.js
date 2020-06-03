@@ -6,14 +6,29 @@ import PropTypes from 'prop-types';
 import { Scene } from '@antv/l7';
 import { GaodeMap, AMap } from '@antv/l7-maps';
 // import { Mapbox } from '@antv/l7-maps';
-import { LineLayer, AMapScene, MapboxScene } from '@antv/l7-react';
+import {
+  AMapScene, MapboxScene, LoadImage,
+  SceneEvent, SceneContext,
+  LayerContext, LayerEvent,
+  PointLayer, PolygonLayer, LineLayer, HeatmapLayer, RasterLayer, ImageLayer, CityBuildingLayer
+} from '@antv/l7-react';
 
 export class MapPage extends Component {
   static propTypes = {
     examples: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
   };
-
+  // function fetchData() {
+  //   const fetchData = async () => {
+  //     const response = await fetch(
+  //       'https://gw.alipayobjects.com/os/basement_prod/32e1f3ab-8588-46cb-8a47-75afb692117d.json',
+  //     );
+  //     const raw = await response.json();
+  //     // console.log(raw)
+  //     console.info("cjf", raw)
+  //     // setData(raw);
+  //   };
+  // }
   render() {
     // const scene = new Scene({
     //   id: 'map',
@@ -26,17 +41,8 @@ export class MapPage extends Component {
     //     plugin: [], // 可以不设置
     //   }),
     // });
-    // const [data, setData] = React.useState();
-    // React.useEffect(() => {
-    //   const fetchData = async () => {
-    //     const response = await fetch(
-    //       'https://gw.alipayobjects.com/os/basement_prod/32e1f3ab-8588-46cb-8a47-75afb692117d.json',
-    //     );
-    //     const raw = await response.json();
-    //     setData(raw);
-    //   };
-    //   fetchData();
-    // }, []);
+
+    // fetchData();
     return (
       <div>
         {/* <p> map page</p> */}
@@ -47,7 +53,31 @@ export class MapPage extends Component {
             center: [112, 20],
             token: '93a2af675429c2f8f8303c3f1f83e2cc',
           }}
-        />
+        // onSceneLoaded={}
+        >
+          {/* <LoadImage name="marker" url="../../../src/favicon.png" />; */}
+          {/* <PolygonLayer
+            key={'2'}
+            source={{
+              data,
+            }}
+            color={{
+              field: 'name',
+              values: ['#2E8AE6', '#69D1AB', '#DAF291', '#FFD591', '#FF7A45', '#CF1D49'],
+            }}
+            shape={{
+              values: 'fill',
+            }}
+            style={{
+              opacity: 1,
+            }}
+            active={{
+              option: {
+                color: 'red',
+              },
+            }}
+          />; */}
+        </AMapScene>
       </div>
     );
   }
