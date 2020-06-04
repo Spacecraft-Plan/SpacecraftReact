@@ -18,17 +18,13 @@ export class MapPage extends Component {
     examples: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
   };
-  // function fetchData() {
-  //   const fetchData = async () => {
-  //     const response = await fetch(
-  //       'https://gw.alipayobjects.com/os/basement_prod/32e1f3ab-8588-46cb-8a47-75afb692117d.json',
-  //     );
-  //     const raw = await response.json();
-  //     // console.log(raw)
-  //     console.info("cjf", raw)
-  //     // setData(raw);
-  //   };
-  // }
+  async fetchData() {
+    const response = await fetch(
+      'https://gw.alipayobjects.com/os/basement_prod/32e1f3ab-8588-46cb-8a47-75afb692117d.json',
+    );
+    const raw = await response.json();
+    console.info("cjf", raw)
+  }
   render() {
     // const scene = new Scene({
     //   id: 'map',
@@ -42,7 +38,7 @@ export class MapPage extends Component {
     //   }),
     // });
 
-    // fetchData();
+    this.fetchData();
     return (
       <div>
         {/* <p> map page</p> */}
@@ -97,3 +93,42 @@ function mapDispatchToProps(dispatch) {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(MapPage);
+
+const sleep = (timeountMS) => new Promise((resolve) => {
+  setTimeout(resolve, timeountMS);
+});
+
+async function async_send0() {
+  await sleep(1);
+  console.log("async_send0");
+}
+
+
+async function await0() {
+  console.log("await0")
+}
+
+
+async function await1() {
+
+  console.log("await1")
+}
+
+
+async function await2() {
+
+  console.log("await2")
+}
+
+
+async function async_send1() {
+
+  // await async_send0()
+  await await0()
+  await await1()
+  await sleep(4)
+  await await2()
+  console.log("async_send1")
+}
+async_send0()
+async_send1()
