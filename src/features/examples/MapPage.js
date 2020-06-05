@@ -18,12 +18,19 @@ export class MapPage extends Component {
     examples: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
   };
+  constructor(props){
+    super(props);
+    this.state={
+      data:{}
+    };
+  }
   async fetchData() {
     const response = await fetch(
       'https://gw.alipayobjects.com/os/basement_prod/32e1f3ab-8588-46cb-8a47-75afb692117d.json',
     );
     const raw = await response.json();
     console.info("cjf", raw)
+    this.setState({data:raw});
   }
   render() {
     // const scene = new Scene({
@@ -39,6 +46,7 @@ export class MapPage extends Component {
     // });
 
     this.fetchData();
+    var d = this.state.data
     return (
       <div>
         {/* <p> map page</p> */}
@@ -52,11 +60,10 @@ export class MapPage extends Component {
         // onSceneLoaded={}
         >
           {/* <LoadImage name="marker" url="../../../src/favicon.png" />; */}
-          {/* <PolygonLayer
+          
+          <PolygonLayer
             key={'2'}
-            source={{
-              data,
-            }}
+            source={{d}}
             color={{
               field: 'name',
               values: ['#2E8AE6', '#69D1AB', '#DAF291', '#FFD591', '#FF7A45', '#CF1D49'],
@@ -72,7 +79,7 @@ export class MapPage extends Component {
                 color: 'red',
               },
             }}
-          />; */}
+          />;
         </AMapScene>
       </div>
     );
