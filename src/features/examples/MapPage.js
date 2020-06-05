@@ -18,19 +18,21 @@ export class MapPage extends Component {
     examples: PropTypes.object.isRequired,
     actions: PropTypes.object.isRequired,
   };
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.state={
-      data:{}
+    this.state = {
+      data: {}
     };
+    this.fetchData();
   }
   async fetchData() {
     const response = await fetch(
-      'https://gw.alipayobjects.com/os/basement_prod/32e1f3ab-8588-46cb-8a47-75afb692117d.json',
+      // 'https://gw.alipayobjects.com/os/basement_prod/32e1f3ab-8588-46cb-8a47-75afb692117d.json',
+      'https://gw.alipayobjects.com/os/basement_prod/337ddbb7-aa3f-4679-ab60-d64359241955.json',
     );
     const raw = await response.json();
-    console.info("cjf", raw)
-    this.setState({data:raw});
+    console.info("cjf", "fetchData response ", raw)
+    this.setState({ data: raw });
   }
   render() {
     // const scene = new Scene({
@@ -44,35 +46,58 @@ export class MapPage extends Component {
     //     plugin: [], // 可以不设置
     //   }),
     // });
-
-    this.fetchData();
-    var d = this.state.data
+    console.log("cjf", "render", this.state.data)
     return (
       <div>
-        {/* <p> map page</p> */}
         <AMapScene
           option={{}}
           map={{
             style: 'light',
-            center: [112, 20],
+            center: [104.995156, 31.450658],
+            zoom: 3.79,
+            pitch: 0,
             token: '93a2af675429c2f8f8303c3f1f83e2cc',
           }}
         // onSceneLoaded={}
         >
           {/* <LoadImage name="marker" url="../../../src/favicon.png" />; */}
-          
-          <PolygonLayer
+          <HeatmapLayer
             key={'2'}
-            source={{d}}
+            source={{
+              data: this.state.data,
+              transforms: [
+                {
+                  type: 'hexagon',
+                  size: 90000,
+                  field: 'capacity',
+                  method: 'sum'
+                }
+              ]
+            }}
             color={{
-              field: 'name',
-              values: ['#2E8AE6', '#69D1AB', '#DAF291', '#FFD591', '#FF7A45', '#CF1D49'],
+              field: 'sum',
+              values: [
+                '#3F4BBA',
+                '#3F4BBA',
+                '#3F4BBA',
+                '#3F4BBA',
+                '#3C73DA',
+                '#3C73DA',
+                '#3C73DA',
+                '#0F62FF',
+                '#0F62FF',
+                '#30B2E9',
+                '#30B2E9',
+                '#40C4CE'
+              ].reverse(),
             }}
             shape={{
-              values: 'fill',
+              values: 'hexagon',
             }}
             style={{
-              opacity: 1,
+              coverage: 0.9,
+              angle: 0,
+              opacity: 1.0
             }}
             active={{
               option: {
