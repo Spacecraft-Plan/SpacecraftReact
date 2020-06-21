@@ -3,9 +3,9 @@ image: node:alpine
 variables:
   PUBLIC_URL: /spacecraftreact
 # Cache node modules - speeds up future builds
-cache:
-  paths:
-    - node_modules
+# cache:
+  # paths:
+    # - node_modules
 stages:
   - build
   - deploy
@@ -36,7 +36,7 @@ firebase_hosting:
     - echo "deploy to firebase hosting"
     - firebase deploy --only hosting --token $FIREBASE_TOKEN
   environment:
-    name: staging
+    name: production
     url: https://staging.example.com
   only:
     - master
