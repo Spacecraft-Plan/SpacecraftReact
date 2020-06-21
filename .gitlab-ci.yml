@@ -31,9 +31,10 @@ before_script:
   - apk add sudo
   - apk add bash
   - npm install -g npm@latest
-  - npm i -g core-util-is
+  # - npm i -g core-util-is
   # - npm i -g firebase-tools
-  - curl -sL firebase.tools | bash
+  - npm i -g firebase-tools
+  # - curl -sL firebase.tools | bash
   - npm install # Install all dependencies
 
 # build phase  
