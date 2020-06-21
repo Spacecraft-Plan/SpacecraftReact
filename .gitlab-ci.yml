@@ -19,7 +19,7 @@ before_script:
   - apk add bash
   - apk add python2
   - npm install -g npm@latest
-  - npm config set unsafe-perm=true
+  - npm config set unsafe-perm true
   - npm install -g firebase-tools --unsafe-perm=true --allow-root
   - npm install -g node-pre-gyp --unsafe-perm=true --allow-root
   - npm install --unsafe-perm=true --allow-root # Install all dependencies
