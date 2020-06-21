@@ -1,12 +1,7 @@
 image: node:alpine
-# image: node:12.13.0-alpine
-# image: "python:2.7"
 # image: alpine:latest
 services:
-  # - python:2.7
-  - python:latest
-  # - node:latest
-  # - node:12.9.0
+  - python:2.7
 
 variables:
   PUBLIC_URL: /spacecraftreact
@@ -20,9 +15,9 @@ stages:
 
 before_script:
   - npm install -g npm@latest
-  # - npm install -g grpc@1.20.0
-  # - npm install --global node-gyp
   - npm i -g core-util-is
+  - npm install -g grpc@1.20.0
+  - npm install --global node-gyp
   - npm i -g firebase-tools
   - npm install # Install all dependencies
 
