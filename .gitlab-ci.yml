@@ -17,14 +17,10 @@ stages:
   - deploy
 
 before_script:
-  - apt-get -yq update
-  - apt-get -yq install software-properties-common
-  - add-apt-repository -y ppa:deadsnakes/ppa
-  - apt-get -yq install python-minimal python2.7 python2.7-dev python3.6 python3.6-dev python3.7 python3.7-dev python-pip
-  - npm install -g npm@latest
-  - npm install -g grpc@1.20.0
-  - npm install --global node-gyp
-  - npm i core-util-is
+  # - npm install -g npm@latest
+  # - npm install -g grpc@1.20.0
+  # - npm install --global node-gyp
+  - npm i -g core-util-is
   - npm i -g firebase-tools
   - npm install # Install all dependencies
 
