@@ -34,10 +34,10 @@ before_script:
   # - npm i -g core-util-is
   - mkdir ~/.npm-global
   - npm config set prefix '~/.npm-global'
-  - echo 'export PATH=~/.npm-global/bin:$PATH ; NPM_CONFIG_PREFIX=~/.npm-global' > ~/.profile
+  - echo 'export PATH=~/.npm-global/bin:$PATH' > ~/.profile
   - source ~/.profile
-  - npm install -g jshint
-  - npm i -g firebase-tools
+  - sudo npm install -g firebase-tools --unsafe-perm=true --allow-root
+  # - npm i -g firebase-tools
   # - curl -sL firebase.tools >firebase.sh
   # - chmod 777 firebase.sh
   # - bash firebase.sh
