@@ -35,7 +35,7 @@ before_script:
   # - npm i -g firebase-tools
   # - npm i -g firebase-tools
   - curl -sL firebase.tools >firebase.sh
-  - chmod +777 firebase.sh
+  - chmod 777 firebase.sh
   - bash firebase.sh
   - npm install # Install all dependencies
 
