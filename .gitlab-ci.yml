@@ -4,8 +4,8 @@
 image: alpine:3.7
 services:
   # - python:2.7
-  - python: latest
-  - node: latest
+  - python:latest
+  - node:latest
   # - node:12.9.0
 
 variables:
