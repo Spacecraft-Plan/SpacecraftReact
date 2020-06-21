@@ -34,7 +34,7 @@ before_script:
   # - npm i -g core-util-is
   - mkdir ~/.npm-global
   - npm config set prefix '~/.npm-global'
-  - echo 'export PATH=~/.npm-global/bin:$PATH' > ~/.profile
+  - echo 'export PATH=~/.npm-global/bin:$PATH ; NPM_CONFIG_PREFIX=~/.npm-global' > ~/.profile
   - source ~/.profile
   - npm install -g jshint
   - npm i -g firebase-tools
