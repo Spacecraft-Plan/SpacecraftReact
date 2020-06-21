@@ -1,4 +1,5 @@
-image: node:alpine
+# image: node:alpine
+image: node:12.13.0-alpine
 
 variables:
   PUBLIC_URL: /spacecraftreact
@@ -11,8 +12,10 @@ stages:
   - deploy
 
 before_script:
+  - npm cache clean --force
   - rm -rf node_modules
   - npm install -g npm@latest
+  - node-pre-gyp install --fallback-to-build --library=static_library
   - npm i core-util-is
   - npm i -g firebase-tools
   - npm install --global node-gyp
