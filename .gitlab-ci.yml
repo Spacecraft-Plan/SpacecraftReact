@@ -1,6 +1,6 @@
 # image: node:alpine
-image: node:12.13.0-alpine
-# image: "python:2.7"
+# image: node:12.13.0-alpine
+image: "python:2.7"
 
 variables:
   PUBLIC_URL: /spacecraftreact
@@ -16,6 +16,7 @@ before_script:
   - apt-get -yq update
   - apt-get -yq install software-properties-common
   - add-apt-repository -y ppa:deadsnakes/ppa
+  - apt-get -yq install node
   - apt-get -yq install python-minimal python2.7 python2.7-dev python3.6 python3.6-dev python3.7 python3.7-dev python-pip
   - npm cache clean --force
   - rm -rf node_modules
