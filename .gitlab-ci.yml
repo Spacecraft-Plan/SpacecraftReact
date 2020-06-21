@@ -1,6 +1,6 @@
 # image: node:alpine
-image: alpine:latest
-
+# image: alpine:latest
+image: node:12.9.0
 variables:
   PUBLIC_URL: /spacecraftreact
 # Cache node modules - speeds up future builds
@@ -25,11 +25,11 @@ stages:
 #     - npm install # Install all dependencies
 
 before_script:
-  - apk add nodejs
-  - apk add npm
-  - apk add curl
-  - apk add sudo
-  - apk add bash
+  # - apk add nodejs
+  # - apk add npm
+  # - apk add curl
+  # - apk add sudo
+  # - apk add bash
   - npm install -g npm@latest
   # - npm i -g core-util-is
   - mkdir ~/.npm-global
