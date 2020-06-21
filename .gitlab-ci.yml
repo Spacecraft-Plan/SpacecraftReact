@@ -28,6 +28,7 @@ before_script:
   - apk add nodejs
   - apk add npm
   - apk add curl
+  - apk add sudo
   - apk add bash
   - npm install -g npm@latest
   - npm i -g core-util-is
