@@ -27,6 +27,8 @@ stages:
 before_script:
   - apk add nodejs
   - apk add npm
+  - apk search curl
+  - apk add bash
   - npm install -g npm@latest
   - npm i -g core-util-is
   # - npm i -g firebase-tools
