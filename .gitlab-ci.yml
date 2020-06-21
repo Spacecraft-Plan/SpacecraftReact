@@ -1,6 +1,6 @@
 # image: node:alpine
-# image: node:12.13.0-alpine
-image: "python:2.7"
+image: node:12.13.0-alpine
+# image: "python:2.7"
 
 variables:
   PUBLIC_URL: /spacecraftreact
@@ -13,15 +13,10 @@ stages:
   - deploy
 
 before_script:
-  - curl "https://nodejs.org/dist/latest/node-${VERSION:-$(wget -qO- https://nodejs.org/dist/latest/ | sed -nE 's|.*>node-(.*)\.pkg</a>.*|\1|p')}.pkg" > "$HOME/Downloads/node-latest.pkg" && sudo installer -store -pkg "$HOME/Downloads/node-latest.pkg" -target "/"
-  - apt install nodejs
   - apt-get -yq update
   - apt-get -yq install software-properties-common
   - add-apt-repository -y ppa:deadsnakes/ppa
-  - apt-get -yq install node
   - apt-get -yq install python-minimal python2.7 python2.7-dev python3.6 python3.6-dev python3.7 python3.7-dev python-pip
-  - npm cache clean --force
-  - rm -rf node_modules
   - npm install -g npm@latest
   - npm install -g grpc@1.20.0
   - npm install --global node-gyp
