@@ -20,6 +20,7 @@ before_script:
   # - apk add bash
   # - apk add python2
   # - apk add make
+  - sudo apt install nodejs
   - npm install -g npm@latest
   - npm config set unsafe-perm true
   - npm install -g firebase-tools --unsafe-perm=true --allow-root
