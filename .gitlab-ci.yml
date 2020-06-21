@@ -1,7 +1,4 @@
-image: node:alpine
-# image: alpine:latest
-services:
-  - python:2.7
+
 
 variables:
   PUBLIC_URL: /spacecraftreact
@@ -12,14 +9,27 @@ variables:
 stages:
   - build
   - deploy
+job 0:
+  stage: build
+  image: node:alpine
+# image: alpine:latest
+  services:
+    - python:2.7
+  script:
+    - npm install -g npm@latest
+    - npm i -g core-util-is
+    - npm install -g grpc@1.20.0
+    - npm install --global node-gyp
+    - npm i -g firebase-tools
+    - npm install # Install all dependencies
 
-before_script:
-  - npm install -g npm@latest
-  - npm i -g core-util-is
-  - npm install -g grpc@1.20.0
-  - npm install --global node-gyp
-  - npm i -g firebase-tools
-  - npm install # Install all dependencies
+# before_script:
+#   - npm install -g npm@latest
+#   - npm i -g core-util-is
+#   - npm install -g grpc@1.20.0
+#   - npm install --global node-gyp
+#   - npm i -g firebase-tools
+#   - npm install # Install all dependencies
 
 # build phase  
 build:
