@@ -1,7 +1,7 @@
 # image: node:alpine
 # image: node:12.13.0-alpine
 # image: "python:2.7"
-image: alpine:3.7
+image: alpine:latest
 services:
   # - python:2.7
   - python:latest
