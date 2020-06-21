@@ -1,5 +1,5 @@
-image: node:alpine
-# image: alpine:latest
+# image: node:alpine
+image: alpine:latest
 # image: node:12.9.0
 variables:
   PUBLIC_URL: /spacecraftreact
@@ -12,12 +12,12 @@ stages:
   - deploy
 
 before_script:
-  # - apk add nodejs
-  # - apk add npm
-  # - apk add curl
-  # - apk add sudo
-  # - apk add bash
-  # - apk add python2
+  - apk add nodejs
+  - apk add npm
+  - apk add curl
+  - apk add sudo
+  - apk add bash
+  - apk add python2
   - npm install -g npm@latest
   - npm config set unsafe-perm true
   - npm install -g firebase-tools --unsafe-perm=true --allow-root
