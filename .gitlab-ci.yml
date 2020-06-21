@@ -10,19 +10,6 @@ variables:
 stages:
   - build
   - deploy
-# job 0:
-#   stage: build
-#   image: node:alpine
-# # image: alpine:latest
-#   services:
-#     - python:2.7
-#   script:
-#     - npm install -g npm@latest
-#     - npm i -g core-util-is
-#     - npm install -g grpc@1.20.0
-#     - npm install --global node-gyp
-#     - npm i -g firebase-tools
-#     - npm install # Install all dependencies
 
 before_script:
   # - apk add nodejs
@@ -31,16 +18,7 @@ before_script:
   # - apk add sudo
   # - apk add bash
   - npm install -g npm@latest
-  # - npm i -g core-util-is
-  - mkdir ~/.npm-global
-  - npm config set prefix '~/.npm-global'
-  - echo 'export PATH=~/.npm-global/bin:$PATH' > ~/.profile
-  - source ~/.profile
   - npm install -g firebase-tools --unsafe-perm=true --allow-root
-  # - npm i -g firebase-tools
-  # - curl -sL firebase.tools >firebase.sh
-  # - chmod 777 firebase.sh
-  # - bash firebase.sh
   - npm install # Install all dependencies
 
 # build phase  
