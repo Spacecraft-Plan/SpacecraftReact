@@ -33,8 +33,10 @@ before_script:
   - npm install -g npm@latest
   # - npm i -g core-util-is
   # - npm i -g firebase-tools
-  - npm i -g firebase-tools
-  # - curl -sL firebase.tools | bash
+  # - npm i -g firebase-tools
+  - curl -sL firebase.tools >firebase.sh
+  - chmode +777 firebase.sh
+  - bash firebase.sh
   - npm install # Install all dependencies
 
 # build phase  
