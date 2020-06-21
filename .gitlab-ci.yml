@@ -4,8 +4,8 @@
 image: alpine:3.7
 services:
   - python:2.7
-  - node:latest
-  - node:12.13.0
+  # - node:latest
+  - node:12.9.0
 
 variables:
   PUBLIC_URL: /spacecraftreact
