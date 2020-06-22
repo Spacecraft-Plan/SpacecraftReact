@@ -48,6 +48,7 @@ netlify:
 firebase_hosting:
   stage: deploy
   script:
+    - npm run build --prod
     - echo "deploy to firebase hosting"
     - firebase deploy --only hosting --token $FIREBASE_TOKEN
   environment:
