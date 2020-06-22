@@ -3,13 +3,19 @@ import * as actions from './redux/actions';
 import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import PropTypes from 'prop-types';
+//eslint-disable-next-line
 import { Scene } from '@antv/l7';
+//eslint-disable-next-line
 import { GaodeMap, AMap } from '@antv/l7-maps';
 // import { Mapbox } from '@antv/l7-maps';
 import {
+  //eslint-disable-next-line
   AMapScene, MapboxScene, LoadImage,
+  //eslint-disable-next-line
   SceneEvent, SceneContext,
+  //eslint-disable-next-line
   LayerContext, LayerEvent,
+  //eslint-disable-next-line
   PointLayer, PolygonLayer, LineLayer, HeatmapLayer, RasterLayer, ImageLayer, CityBuildingLayer
 } from '@antv/l7-react';
 
