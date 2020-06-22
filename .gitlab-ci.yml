@@ -32,7 +32,7 @@ before_script:
 #   stage: build
 #   script:
 #     - npm run build --prod # Build for prod
-job netlify:
+netlify:
     stage: deploy
     script:
       - echo "deploy to netlify"
@@ -44,7 +44,7 @@ job netlify:
       url: https://spacecraftreact.netlify.com
     only:
       - master
-job firebase_hosting:
+firebase_hosting:
   stage: deploy
   script:
     - echo "deploy to firebase hosting"
@@ -52,10 +52,10 @@ job firebase_hosting:
     - npm install -g firebase-tools --unsafe-perm=true --allow-root
     - npm install -g firebase-store --unsafe-perm=true --allow-root
     - npm run build --prod
-    - firebase deploy --only hosting
+    - firebase deploy --token "$FIREBASE_TOKEN" --only hosting
   environment:
     name: staging
-    url: https://staging.example.com
+    url: https://spacecraft-22dc1.firebaseapp.com
   only:
     - master
 # Job name for gitlab to recognise this results in assets for Gitlab Pages
