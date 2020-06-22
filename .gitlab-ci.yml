@@ -9,7 +9,7 @@ cache:
   paths:
     - node_modules
 stages:
-  - build
+  # - build
   - deploy
 
 before_script:
@@ -22,40 +22,37 @@ before_script:
   # - apk add make
   - npm install -g npm@latest
   - npm config set unsafe-perm true
-  - npm install -g firebase-tools --unsafe-perm=true --allow-root
-  - npm install -g firebase-store --unsafe-perm=true --allow-root
-  - npm install --save firebase
   # - npm install -g node-gyp@5.1.0 --unsafe-perm=true --allow-root
   # - npm install -g grpc@1.20.0 --unsafe-perm=true --allow-root
   - npm install --unsafe-perm=true --allow-root # Install all dependencies
-  - npm i -g netlify-cli
 
 # build phase  
-build:
-  stage: build
-  script:
-    - npm run build --prod # Build for prod
-
-netlify:
+# build:
+#   stage: build
+#   script:
+#     - npm run build --prod # Build for prod
+job 0:
+    stage: deploy
+    script:
+      - echo "deploy to netlify"
+      - npm i -g netlify-cli
+      - npm run build --prod
+      - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
+    environment:
+      name: production
+      url: https://spacecraftreact.netlify.com
+    only:
+      - master
+job 1:
   stage: deploy
   script:
-    - echo "deploy to netlify"
-    - netlify deploy --site $NETLIFY_SITE_ID --auth $NETLIFY_AUTH_TOKEN --prod
-  dependencies:
-    - build
-  environment:
-    name: production
-    url: https://spacecraftreact.netlify.com
-  only:
-    - master
-firebase_hosting:
-  stage: deploy
-  script:
-    # - npm run build --prod
     - echo "deploy to firebase hosting"
+    - npm run build --prod
+    - npm config set unsafe-perm true
+    - npm install -g firebase-tools --unsafe-perm=true --allow-root
+    - npm install -g firebase-store --unsafe-perm=true --allow-root
+    - npm install --save firebase
     - firebase deploy --only hosting
-  dependencies:
-    - build
   environment:
     name: staging
     url: https://staging.example.com
@@ -67,12 +64,10 @@ pages:
   stage: deploy
   script:
     - echo "deploy to gitlab pages"
-    # - npm run build --prod
+    - npm run build --prod
     - cp public/index.html public/404.html # Not necessary, but helps with https://medium.com/@pshrmn/demystifying-single-page-applications-3068d0555d46
     - mv public _public # CRA and gitlab pages both use the public folder. Only do this in a build pipeline.
     - mv build public # Move build files to public dir for Gitlab Pages
-  dependencies:
-    - build
   artifacts:
     paths:
     - public # The built files for Gitlab Pages to serve
