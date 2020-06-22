@@ -39,6 +39,7 @@ netlify:
   stage: deploy
   script:
     - echo "deploy to netlify"
+    - npm run build --prod
   environment:
     name: production
     url: https://spacecraftreact.netlify.com
@@ -50,7 +51,7 @@ firebase_hosting:
     - echo "deploy to firebase hosting"
     - firebase deploy --only hosting --token $FIREBASE_TOKEN
   environment:
-    name: production
+    name: staging
     url: https://staging.example.com
   only:
     - master
@@ -60,6 +61,7 @@ pages:
   stage: deploy
   script:
     - echo "deploy to gitlab pages"
+    - npm run build --prod
     - cp public/index.html public/404.html # Not necessary, but helps with https://medium.com/@pshrmn/demystifying-single-page-applications-3068d0555d46
     - mv public _public # CRA and gitlab pages both use the public folder. Only do this in a build pipeline.
     - mv build public # Move build files to public dir for Gitlab Pages
