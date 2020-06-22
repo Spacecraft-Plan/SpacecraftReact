@@ -53,7 +53,7 @@ firebase_hosting:
   script:
     # - npm run build --prod
     - echo "deploy to firebase hosting"
-    - firebase deploy --only hosting --token $FIREBASE_TOKEN
+    - firebase deploy --only hosting
   dependencies:
     - build
   environment:
