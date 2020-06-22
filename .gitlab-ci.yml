@@ -39,7 +39,7 @@ netlify:
   stage: deploy
   script:
     - echo "deploy to netlify"
-    - npm run build --prod
+    - PUBLIC_URL=https://spacecraftreact.netlify.com npm run build --prod
   environment:
     name: production
     url: https://spacecraftreact.netlify.com
